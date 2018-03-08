@@ -4,6 +4,7 @@ import { UpgradeModule, downgradeComponent } from '@angular/upgrade/static';
 
 import { AppComponent } from './app.component';
 import { Ng2DemoComponent } from './ng2-demo/ng2-demo.component';
+import { phoneServiceProvider } from "./phone.service";
 
 declare var angular: any;
 
@@ -22,7 +23,9 @@ angular.module('phonecatApp')
     BrowserModule,
     UpgradeModule
   ],
-  providers: [],
+  providers: [
+    phoneServiceProvider
+  ],
   // bootstrap: [AppComponent],
   entryComponents: [
     Ng2DemoComponent // Don't forget this!!!
