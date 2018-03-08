@@ -4,7 +4,7 @@ angular.
   module('phonecatApp').
   config(['$locationProvider' ,'$routeProvider',
     function config($locationProvider, $routeProvider) {
-      $locationProvider.hashPrefix('!');
+      // $locationProvider.hashPrefix('!');
 
       $routeProvider.
         when('/phones', {
@@ -16,6 +16,6 @@ angular.
         when('/ng2-demo', {
           template: '<ng2-demo></ng2-demo>' // Angular component
         }).        
-        otherwise('/phones');
+        otherwise({template : ''});
     }
   ]);
