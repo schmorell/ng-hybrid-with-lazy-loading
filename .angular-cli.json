@@ -13,20 +13,20 @@
         "favicon.ico"
       ],
       "index": "index.html",
-      "main": "ng2/main.ts",
-      "polyfills": "ng2/polyfills.ts",
-      "test": "ng2/test.ts",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "ng2/styles.css"
+        "styles.css"
       ],
       "scripts": [],
-      "environmentSource": "ng2/environments/environment.ts",
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "dev": "ng2/environments/environment.ts",
-        "prod": "ng2/environments/environment.prod.ts"
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
       }
     }
   ],
