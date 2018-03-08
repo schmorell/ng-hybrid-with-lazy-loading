@@ -8,6 +8,8 @@ import { PHONE_SERVICE } from "../phone.service";
   <p>
     {{phones.length}} Phones found.
   </p>
+
+  <tab-manager></tab-manager>
   `
 })
 export class Ng2DemoComponent implements OnInit {

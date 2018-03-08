@@ -1,11 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { UpgradeModule, downgradeComponent } from '@angular/upgrade/static';
 import { RouterModule, UrlHandlingStrategy } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { Ng2DemoComponent } from './ng2-demo/ng2-demo.component';
 import { phoneServiceProvider } from "./phone.service";
+import { PeopleListComponent } from './people-list/people-list.component';
+import { DynamicTabsDirective } from './dynamic-tabs.directive';
+import { PersonEditComponent } from './person-edit/person-edit.component';
+import { TabComponent } from './tab/tab.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { TabManagerComponent } from './tab-manager/tab-manager.component';
 
 declare var angular: any;
 
@@ -26,11 +33,18 @@ class CustomHandlingStrategy implements UrlHandlingStrategy {
 @NgModule({
   declarations: [
     AppComponent,
-    Ng2DemoComponent
+    Ng2DemoComponent,
+    PeopleListComponent,
+    DynamicTabsDirective,
+    PersonEditComponent,
+    TabComponent,
+    TabsComponent,
+    TabManagerComponent
   ],
   imports: [
     BrowserModule,
     UpgradeModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       // {
       //   path: '',
@@ -54,7 +68,7 @@ class CustomHandlingStrategy implements UrlHandlingStrategy {
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    Ng2DemoComponent // Don't forget this!!!
+    TabComponent
   ]
 })
 export class AppModule { }
