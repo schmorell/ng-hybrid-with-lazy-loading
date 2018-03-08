@@ -26,14 +26,9 @@ angular.module('phonecatApp')
   providers: [
     phoneServiceProvider
   ],
-  // bootstrap: [AppComponent],
+  bootstrap: [AppComponent],
   entryComponents: [
     Ng2DemoComponent // Don't forget this!!!
   ]
 })
-export class AppModule {
-  constructor(private upgrade: UpgradeModule) { }
-  ngDoBootstrap() {
-    this.upgrade.bootstrap(document.body, ['phonecatApp'], { strictDi: true });
-  }
-}
+export class AppModule { }
