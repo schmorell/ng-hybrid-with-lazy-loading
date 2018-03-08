@@ -13,6 +13,7 @@ import { PersonEditComponent } from './person-edit/person-edit.component';
 import { TabComponent } from './tab/tab.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabManagerComponent } from './tab-manager/tab-manager.component';
+import { Ng2HeavyStuffComponent } from './ng2-heavy-stuff/ng2-heavy-stuff.component';
 
 declare var angular: any;
 
@@ -39,7 +40,8 @@ class CustomHandlingStrategy implements UrlHandlingStrategy {
     PersonEditComponent,
     TabComponent,
     TabsComponent,
-    TabManagerComponent
+    TabManagerComponent,
+    Ng2HeavyStuffComponent
   ],
   imports: [
     BrowserModule,
