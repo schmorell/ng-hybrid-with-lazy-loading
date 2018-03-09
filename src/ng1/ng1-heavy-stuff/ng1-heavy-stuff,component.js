@@ -7,16 +7,21 @@ angular.module('phonecatApp').component('ng1HeavyStuff', {
             var vm = this;
 
             vm.arrayNumbers = [];
-            var arrayItems = [];
+            vm.arrayItems = [];
 
             vm.$onInit = onInit;
+            vm.$onDestroy = onDestroy;
 
             function onInit() {
-                for (var i = 0; i < 10000; i++) {
-                    vm.arrayNumbers.push(i);
+                for (var i = 0; i < 1000; i++) {
+                    vm.arrayNumbers.push('_' + i);
                 }
 
-                arrayItems.push(new Array(1000000).join('x'));
+                vm.arrayItems.push(new Array(1000000).join('x'));
+            }
+
+            function onDestroy() {
+                console.log('ng1 on destroy...');
             }
         }
     ]
