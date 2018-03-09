@@ -9,7 +9,7 @@ import {TabsComponent} from '../tabs/tabs.component';
 })
 export class TabManagerComponent {
   @ViewChild('personEdit') editPersonTemplate;
-  @ViewChild('about') aboutTemplate;
+  @ViewChild('personAdd') addPersonTemplate;
   @ViewChild(TabsComponent) tabsComponent;
   
   people = [
@@ -33,7 +33,7 @@ export class TabManagerComponent {
   onAddPerson() {
     this.tabsComponent.openTab(
       'New Person',
-      this.editPersonTemplate, 
+      this.addPersonTemplate, 
       {},
       true
     );
@@ -56,14 +56,5 @@ export class TabManagerComponent {
     
     // close the tab
     this.tabsComponent.closeActiveTab();
-  }
-  
-  onOpenAbout() {
-    this.tabsComponent.openTab(
-      'About',
-      this.aboutTemplate, 
-      {},
-      true
-    );
   }
 }

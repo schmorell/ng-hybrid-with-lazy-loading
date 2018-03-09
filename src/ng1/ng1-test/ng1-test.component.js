@@ -4,5 +4,5 @@
 angular.
   module('phonecatApp').
   component('ng1Test', {
-    template: '<span>***ng1 test component***</span>',
+    template: '<div class="ng1-border"><label>ng1-test.component</label><span>***ng1 test component***</span></div>',
   });

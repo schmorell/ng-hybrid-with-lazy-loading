@@ -2,25 +2,27 @@
 
 <!-- <ng1-test-upgraded></ng1-test-upgraded> -->
 
-<!-- <ng1-heavy-stuff-upgraded></ng1-heavy-stuff-upgraded> -->
-<ng2-heavy-stuff></ng2-heavy-stuff>
-
-<form [formGroup]="personForm" (ngSubmit)="onPersonFormSubmit()">
-  <input type="hidden" formControlName="id">
-  <div class="form-group">
-    <label for="firstname">Firstname</label>
-    <input type="text" class="form-control" id="firstname" placeholder="Firstname" formControlName="name">
-  </div>
-  <div class="form-group">
-    <label for="surname">Surname</label>
-    <input type="text" class="form-control" id="surname" placeholder="Surname" formControlName="surname">
-  </div>
-  <div class="form-group">
-    <label for="twitter">Twitter</label>
-    <div class="input-group">
-      <div class="input-group-addon">@</div>
-      <input type="text" class="form-control" id="twitter" placeholder="Surname" formControlName="twitter">
+<!-- <ng1-heavy-stuff-upgraded [person]=person (onPersonSave)=onPersonFormSubmit()></ng1-heavy-stuff-upgraded> -->
+<!-- <ng2-heavy-stuff></ng2-heavy-stuff> -->
+<div class="ng2-border">
+    <label>person-edit.component</label>
+  <form [formGroup]="personForm" (ngSubmit)="onPersonFormSubmit()">
+    <input type="hidden" formControlName="id">
+    <div class="form-group">
+      <label for="firstname">Firstname</label>
+      <input type="text" class="form-control" id="firstname" placeholder="Firstname" formControlName="name">
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Save</button>
-</form>
+    <div class="form-group">
+      <label for="surname">Surname</label>
+      <input type="text" class="form-control" id="surname" placeholder="Surname" formControlName="surname">
+    </div>
+    <div class="form-group">
+      <label for="twitter">Twitter</label>
+      <div class="input-group">
+        <div class="input-group-addon">@</div>
+        <input type="text" class="form-control" id="twitter" placeholder="Surname" formControlName="twitter">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>

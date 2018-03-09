@@ -1,14 +1,17 @@
-<div style="text-align:center">
+<div class="ng2-border">
+  <label>app.component</label>
+  <div style="text-align:center">
     <h1>
       Welcome to {{title}}!!
     </h1>
     <a routerLink="ng2-route">ng2-route</a> |
-    <a href="#/phones">Phones</a>  
+    <a href="#/phones">Phones</a>
   </div>
-  
+
   <!-- ng1 -->
   <div class="view-container">
     <div ng-view class="view-frame"></div>
     <router-outlet></router-outlet>
-</div>
+  </div>
   <!-- /ng1 -->
+</div>

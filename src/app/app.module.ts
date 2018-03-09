@@ -60,7 +60,7 @@ export class CustomHandlingStrategy implements UrlHandlingStrategy {
       // },
       {
         path: 'ng2-route',
-        component: Ng2DemoComponent
+        component: TabManagerComponent
       }
     ],
       {
