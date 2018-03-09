@@ -15,9 +15,8 @@ export class TabManagerComponent {
   people = [
     {
       id: 1,
-      name: 'Juri',
-      surname: 'Strumpflohner',
-      twitter: '@juristr'
+      name: 'G6',
+      surname: 'Dialog'
     }
   ];
   
