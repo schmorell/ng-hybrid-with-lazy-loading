@@ -14,6 +14,7 @@ import { TabComponent } from './tab/tab.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabManagerComponent } from './tab-manager/tab-manager.component';
 import { Ng2HeavyStuffComponent } from './ng2-heavy-stuff/ng2-heavy-stuff.component';
+import { Ng1TestComponentWrapper } from './upgraded/ng1-test-upgraded.component';
 
 declare var angular: any;
 
@@ -41,7 +42,8 @@ class CustomHandlingStrategy implements UrlHandlingStrategy {
     TabComponent,
     TabsComponent,
     TabManagerComponent,
-    Ng2HeavyStuffComponent
+    Ng2HeavyStuffComponent,
+    Ng1TestComponentWrapper
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,12 @@ class CustomHandlingStrategy implements UrlHandlingStrategy {
   ],
   providers: [
     phoneServiceProvider,
-    { provide: UrlHandlingStrategy, useClass: CustomHandlingStrategy }
+    { provide: UrlHandlingStrategy, useClass: CustomHandlingStrategy },
+    {
+      provide: '$scope',
+      useFactory: i => i.get('$rootScope'),
+      deps: ['$injector']
+    }
   ],
   bootstrap: [AppComponent],
   entryComponents: [
