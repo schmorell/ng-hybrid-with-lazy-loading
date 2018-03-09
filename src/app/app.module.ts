@@ -25,7 +25,7 @@ angular.module('phonecatApp')
     downgradeComponent({ component: Ng2DemoComponent })
   );
 
-class CustomHandlingStrategy implements UrlHandlingStrategy {
+export class CustomHandlingStrategy implements UrlHandlingStrategy {
   shouldProcessUrl(url) {
     return url.toString().startsWith("/ng2-route") || url.toString() === "/";
   }
