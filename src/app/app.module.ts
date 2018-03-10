@@ -52,12 +52,6 @@ export class CustomHandlingStrategy implements UrlHandlingStrategy {
     UpgradeModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      // {
-      //   path: '',
-      //   pathMatch: 'full',
-      //   redirectTo: 'ng2-route'
-
-      // },
       {
         path: 'ng2-route',
         component: TabManagerComponent
