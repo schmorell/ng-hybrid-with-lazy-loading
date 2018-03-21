@@ -16,6 +16,7 @@ import { TabManagerComponent } from './tab-manager/tab-manager.component';
 import { Ng2HeavyStuffComponent } from './ng2-heavy-stuff/ng2-heavy-stuff.component';
 import { Ng1TestComponentWrapper } from './upgraded/ng1-test-upgraded.component';
 import { Ng1HeavyStuffComponentWrapper } from './upgraded/ng1-heavy-stuff-upgraded.component';
+import { AddPersonComponent } from './add-person/add-person.component';
 
 declare var angular: any;
 
@@ -45,7 +46,8 @@ export class CustomHandlingStrategy implements UrlHandlingStrategy {
     TabManagerComponent,
     Ng2HeavyStuffComponent,
     Ng1TestComponentWrapper,
-    Ng1HeavyStuffComponentWrapper
+    Ng1HeavyStuffComponentWrapper,
+    AddPersonComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,9 @@ export class CustomHandlingStrategy implements UrlHandlingStrategy {
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    TabComponent
+    TabComponent,
+    PersonEditComponent,
+    AddPersonComponent
   ]
 })
 export class AppModule { }
