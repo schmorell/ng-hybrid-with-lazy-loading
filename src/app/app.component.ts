@@ -9,7 +9,7 @@ import { PHONE_SERVICE } from "./phone.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'g6-tab';
 
    phones: any[] = [];
 
