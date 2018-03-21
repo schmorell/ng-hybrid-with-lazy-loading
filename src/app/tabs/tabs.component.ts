@@ -37,7 +37,7 @@ export class TabsComponent implements AfterContentInit {
     }
   }
   
-  openTab(title: string, template, data, isCloseable = false) {
+  openTab(title: string, component, data, isCloseable = false) {
     // get a component factory for our TabComponent
     let componentFactory = this._componentFactoryResolver.resolveComponentFactory(TabComponent);
     
@@ -53,7 +53,7 @@ export class TabsComponent implements AfterContentInit {
     // set the according properties on our component instance
     let instance: TabComponent = componentRef.instance as TabComponent;
     instance.title = title;
-    instance.template = template;
+    instance.component = component;
     instance.dataContext = data;
     instance.isCloseable = isCloseable;
     

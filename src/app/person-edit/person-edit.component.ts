@@ -21,11 +21,11 @@ export class PersonEditComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.personForm.setValue({
-      id: this.person.id || -1,
-      name: this.person.name || '',
-      surname: this.person.surname || ''
-    });
+    // this.personForm.setValue({
+    //   id: this.person.id || -1,
+    //   name: this.person.name || '',
+    //   surname: this.person.surname || ''
+    // });
   }
   
   onPersonFormSubmit() {

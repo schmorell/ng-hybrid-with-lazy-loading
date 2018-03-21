@@ -1,6 +1,8 @@
 import {Component, ViewChild } from '@angular/core';
 
 import {TabsComponent} from '../tabs/tabs.component';
+import { PersonEditComponent } from '../person-edit/person-edit.component';
+import { AddPersonComponent } from '../add-person/add-person.component';
 
 @Component({
   selector: 'tab-manager',
@@ -23,7 +25,7 @@ export class TabManagerComponent {
   onEditPerson(person) {
     this.tabsComponent.openTab(
       `Editing ${person.name}`, 
-      this.editPersonTemplate, 
+      PersonEditComponent,
       person,
       true
     );
@@ -32,7 +34,7 @@ export class TabManagerComponent {
   onAddPerson() {
     this.tabsComponent.openTab(
       'New Person',
-      this.addPersonTemplate, 
+      AddPersonComponent,
       {},
       true
     );
