@@ -1,17 +1,20 @@
-import {Component, ViewChild } from '@angular/core';
+import {Component, ViewChild, OnInit } from '@angular/core';
 
 import {TabsComponent} from '../tabs/tabs.component';
+import { UrlSegment, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'tab-manager',
   templateUrl: './tab-manager.component.html',
   styleUrls: ['./tab-manager.component.css']
 })
-export class TabManagerComponent {
+export class TabManagerComponent implements OnInit {
   @ViewChild('personEdit') editPersonTemplate;
   @ViewChild('personAdd') addPersonTemplate;
   @ViewChild(TabsComponent) tabsComponent;
   
+  component;
+
   people = [
     {
       id: 1,
@@ -19,6 +22,34 @@ export class TabManagerComponent {
       surname: 'Dialog'
     }
   ];
+
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.route.url.subscribe((url: UrlSegment[]) => {
+      this.component = url[0].parameters.component;
+      if (this.component) {
+
+        if (this.component == 'personEdit') {
+          this.tabsComponent.openTab(
+            'New Person',
+            this.editPersonTemplate,
+            {},
+            true
+          );
+        }
+        else {
+            this.tabsComponent.openTab(
+              'New Person',
+              this.addPersonTemplate,
+              {},
+              true
+            );          
+        }
+      }
+      console.log(url);
+    })
+  }  
   
   onEditPerson(person) {
     this.tabsComponent.openTab(
