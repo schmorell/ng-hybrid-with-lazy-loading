@@ -15,7 +15,17 @@ import { TabsComponent } from './tabs/tabs.component';
 import { TabManagerComponent } from './tab-manager/tab-manager.component';
 import { Ng2HeavyStuffComponent } from './ng2-heavy-stuff/ng2-heavy-stuff.component';
 import { Ng1TestComponentWrapper } from './upgraded/ng1-test-upgraded.component';
-import { Ng1HeavyStuffComponentWrapper } from './upgraded/ng1-heavy-stuff-upgraded.component';
+
+import { DynamicComponentLoaderModule, DynamicComponentManifest } from './dynamic-component-loader/dynamic-component-loader.module';
+
+// This array defines which "componentId" maps to which lazy-loaded module.
+const manifests: DynamicComponentManifest[] = [
+  {
+    componentId: 'message',
+    path: 'dynamic-message', // some globally-unique identifier, used internally by the router
+    loadChildren: './dynamic-modules/message/message.module#MessageModule',
+  },
+];
 
 declare var angular: any;
 
@@ -44,13 +54,13 @@ export class CustomHandlingStrategy implements UrlHandlingStrategy {
     TabsComponent,
     TabManagerComponent,
     Ng2HeavyStuffComponent,
-    Ng1TestComponentWrapper,
-    Ng1HeavyStuffComponentWrapper
+    Ng1TestComponentWrapper
   ],
   imports: [
     BrowserModule,
     UpgradeModule,
     ReactiveFormsModule,
+    DynamicComponentLoaderModule.forRoot(manifests),
     RouterModule.forRoot([
       {
         path: 'ng2-route',

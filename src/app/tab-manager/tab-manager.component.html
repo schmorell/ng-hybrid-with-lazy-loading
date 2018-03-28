@@ -11,6 +11,10 @@
     <person-edit [person]="person" (savePerson)="onPersonFormSubmit($event)"></person-edit>
   </ng-template>
   <ng-template let-person="person" #personAdd>
-    <ng1-heavy-stuff-upgraded [person]="person" (onPersonSave)=onPersonFormSubmit($event)></ng1-heavy-stuff-upgraded>
+    <p>perdon add</p>
   </ng-template>
 </div>
+
+<button type="button" (click)="loadComponent()">Load!</button>
+
+<div #testOutlet></div>
