@@ -46,13 +46,12 @@ export class TabManagerComponent implements OnInit {
       if (this.component) {
 
         if (this.component == 'test') {
-          this.dynamicComponentLoader
-            .getComponentFactory<MessageComponent>('message')
-            .subscribe(componentFactory => {
-              this.testOutlet.createComponent(componentFactory);
-            }, error => {
-              console.warn(error);
-            });
+          this.tabsComponent.openTab(
+            `Add`,
+            'message',
+            null,
+            true
+          );
         }
       }
       console.log(url);
@@ -62,19 +61,20 @@ export class TabManagerComponent implements OnInit {
   onEditPerson(person) {
     this.tabsComponent.openTab(
       `Editing ${person.name}`,
-      this.editPersonTemplate,
+      'message',
       person,
       true
     );
   }
 
   onAddPerson() {
-    this.tabsComponent.openTab(
-      'New Person',
-      this.addPersonTemplate,
-      {},
-      true
-    );
+    this.dynamicComponentLoader
+      .getComponentFactory<MessageComponent>('message')
+      .subscribe(componentFactory => {
+        this.testOutlet.createComponent(componentFactory);
+      }, error => {
+        console.warn(error);
+      });
   }
 
   onPersonFormSubmit(dataModel) {

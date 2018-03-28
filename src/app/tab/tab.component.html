@@ -1,9 +1,11 @@
 <div [hidden]="!active" class="pane" class="ng2-border">
-    <label>tab.component</label>
+  <label>tab.component</label>
   <ng-content></ng-content>
-  <ng-container *ngIf="template"
+  <!-- <ng-container *ngIf="template"
     [ngTemplateOutlet]="template"
-    [ngTemplateOutletContext]="{ person: dataContext }"
-  >
-  </ng-container>
+    [ngTemplateOutletContext]="{ person: dataContext }">
+  </ng-container> -->
+  <div *ngIf="template">
+    <div #testOutlet></div>
+  </div>
 </div>
