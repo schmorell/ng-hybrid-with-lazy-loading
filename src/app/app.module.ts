@@ -27,13 +27,13 @@ const manifests: DynamicComponentManifest[] = [
   },
 ];
 
-declare var angular: any;
+// declare var angular: any;
 
-angular.module('phonecatApp')
-  .directive(
-    'ng2Demo',
-    downgradeComponent({ component: Ng2DemoComponent })
-  );
+// angular.module(PhonecatAppModule.name)
+//   .directive(
+//     'ng2Demo',
+//     downgradeComponent({ component: Ng2DemoComponent })
+//   );
 
 export class CustomHandlingStrategy implements UrlHandlingStrategy {
   shouldProcessUrl(url) {

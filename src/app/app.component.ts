@@ -3,6 +3,8 @@ import { UpgradeModule } from "@angular/upgrade/static";
 
 import { PHONE_SERVICE } from "./phone.service";
 
+import { PhonecatAppModule }  from '../ng1/app.module';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,6 +18,6 @@ export class AppComponent {
    constructor(private upgrade: UpgradeModule) { }
 
     ngOnInit() {
-      this.upgrade.bootstrap(document.body, ['phonecatApp']);
+      this.upgrade.bootstrap(document.body, [PhonecatAppModule.name]);
     }
 }
