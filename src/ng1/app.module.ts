@@ -1,6 +1,8 @@
 import { Ng1TestComponent } from '../ng1/ng1-test/ng1-test.component';
 
-declare var angular: any;
+import 'angular';
+
+declare const angular: any;
 
 export const PhonecatAppModule = angular.module('phonecatApp', []);
 

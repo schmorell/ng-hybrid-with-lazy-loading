@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit, ViewContainerRef } from '@angular/core';
 
 import { TabsComponent } from '../tabs/tabs.component';
-import { UrlSegment, ActivatedRoute } from '@angular/router';
+import { UrlSegment, ActivatedRoute, Router } from '@angular/router';
 import { DynamicComponentLoader } from '../dynamic-component-loader/dynamic-component-loader.service';
 import { MessageComponent } from '../dynamic-modules/message/message.component';
 
@@ -28,17 +28,14 @@ export class TabManagerComponent implements OnInit {
   ];
 
   constructor(private route: ActivatedRoute,
+    private router: Router,
     private dynamicComponentLoader: DynamicComponentLoader) { }
 
   loadComponent() {
-    this.dynamicComponentLoader
-      .getComponentFactory<MessageComponent>('message')
-      .subscribe(componentFactory => {
-        this.testOutlet.createComponent(componentFactory);
-      }, error => {
-        console.warn(error);
-      });
-  }
+    let random = Math.random() * 10;
+
+    this.router.navigate(['//ng2-route', { component: 'test', random: random }]);
+}
 
   ngOnInit(): void {
     this.route.url.subscribe((url: UrlSegment[]) => {

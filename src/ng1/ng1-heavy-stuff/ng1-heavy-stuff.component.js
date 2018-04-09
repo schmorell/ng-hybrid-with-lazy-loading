@@ -23,7 +23,7 @@ angular.module('phonecatApp').component('ng1HeavyStuff', {
                 <input type="text" class="form-control" placeholder="{{number}}">
             </div>
         </div>
-    </div>'
+    </div>
     `,
     controller: ['Phone',
         function PhoneListController(Phone) {

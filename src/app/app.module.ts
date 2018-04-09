@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpgradeModule, downgradeComponent } from '@angular/upgrade/static';
-import { RouterModule, UrlHandlingStrategy } from '@angular/router';
+import { RouterModule, UrlHandlingStrategy, PreloadAllModules } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { Ng2DemoComponent } from './ng2-demo/ng2-demo.component';
@@ -14,9 +14,10 @@ import { TabComponent } from './tab/tab.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { TabManagerComponent } from './tab-manager/tab-manager.component';
 import { Ng2HeavyStuffComponent } from './ng2-heavy-stuff/ng2-heavy-stuff.component';
-import { Ng1TestComponentWrapper } from './upgraded/ng1-test-upgraded.component';
 
 import { DynamicComponentLoaderModule, DynamicComponentManifest } from './dynamic-component-loader/dynamic-component-loader.module';
+
+import { NgServiceService } from './ng-service.service';
 
 // This array defines which "componentId" maps to which lazy-loaded module.
 const manifests: DynamicComponentManifest[] = [
@@ -53,8 +54,7 @@ export class CustomHandlingStrategy implements UrlHandlingStrategy {
     TabComponent,
     TabsComponent,
     TabManagerComponent,
-    Ng2HeavyStuffComponent,
-    Ng1TestComponentWrapper
+    Ng2HeavyStuffComponent
   ],
   imports: [
     BrowserModule,
@@ -66,14 +66,17 @@ export class CustomHandlingStrategy implements UrlHandlingStrategy {
         path: 'ng2-route',
         component: TabManagerComponent
       }
-    ],
-      {
-        useHash: true
-      }
+    ], {
+      // enableTracing: true,
+      // Uncomment to enable preloading and prebootstrapping
+      // preloadingStrategy: PreloadAllModules,
+      useHash: true
+    }
     )
   ],
   providers: [
     phoneServiceProvider,
+    NgServiceService,
     { provide: UrlHandlingStrategy, useClass: CustomHandlingStrategy },
     {
       provide: '$scope',
