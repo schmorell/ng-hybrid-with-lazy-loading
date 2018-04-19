@@ -19,6 +19,9 @@ import { DynamicComponentLoaderModule, DynamicComponentManifest } from './dynami
 
 import { NgServiceService } from './ng-service.service';
 
+// import * as jQuery from "jquery";
+// (<any>window).jQuery = jQuery;
+
 // This array defines which "componentId" maps to which lazy-loaded module.
 const manifests: DynamicComponentManifest[] = [
   {
