@@ -1,3 +1,7 @@
+declare var require: any;
+
+require("@progress/kendo-ui/js/kendo.datepicker.js");
+
 class Ng1TestController {
   arrayNumbers: Array<string> = [];
   arrayItems: Array<string> = [];

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 
 import { DynamicComponentLoaderModule } from '../../dynamic-component-loader/dynamic-component-loader.module';
-import { MessageComponent } from './message.component';
-// import { Ng1HeavyStuffComponentWrapper } from '../../upgraded/ng1-heavy-stuff-upgraded.component';
+import { CommentComponent } from './comment.component';
+import { Ng1HeavyStuffComponentWrapper } from '../../upgraded/ng1-heavy-stuff-upgraded.component';
 import { UpgradeModule, setAngularJSGlobal } from '@angular/upgrade/static';
 
 import { PhonecatAppModule } from '../../../ng1/app.module';
-import { Ng1TestComponentWrapper } from '../../upgraded/ng1-test-upgraded.component';
+// import { Ng1TestComponentWrapper } from '../../upgraded/ng1-test-upgraded.component';
 
 import { setUpLocationSync } from '@angular/router/upgrade';
 
@@ -18,15 +18,15 @@ declare const angular: any;
 
 @NgModule({
   declarations: [
-    MessageComponent,
-    // Ng1HeavyStuffComponentWrapper,
-    Ng1TestComponentWrapper
+    CommentComponent,
+    Ng1HeavyStuffComponentWrapper,
+    // Ng1TestComponentWrapper
   ],
   imports: [
-    DynamicComponentLoaderModule.forChild(MessageComponent),
+    DynamicComponentLoaderModule.forChild(CommentComponent),
   ]
 })
-export class MessageModule {
+export class CommentModule {
   constructor(upgrade: UpgradeModule, private ngService: NgServiceService) {
     if (!ngService.IsLoaded()) {
       setAngularJSGlobal(angular);

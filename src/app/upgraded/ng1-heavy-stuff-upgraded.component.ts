@@ -11,7 +11,7 @@ export class Ng1HeavyStuffComponentWrapper extends UpgradeComponent implements O
 
   constructor(@Inject(ElementRef) elementRef: ElementRef, @Inject(Injector) injector: Injector) {
     // We must pass the name of the directive as used by AngularJS to the super
-    super('ng1HeavyStuff', elementRef, injector);
+    super('ng1Heavy', elementRef, injector);
 
   }
   ngOnInit() {

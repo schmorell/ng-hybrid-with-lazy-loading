@@ -1,6 +1,7 @@
 import { Component, Input, ViewChild, ViewContainerRef } from '@angular/core';
 import { MessageComponent } from '../dynamic-modules/message/message.component';
 import { DynamicComponentLoader } from '../dynamic-component-loader/dynamic-component-loader.service';
+import { CommentComponent } from '../dynamic-modules/comment/comment.component';
 
 @Component({
   selector: 'my-tab',
@@ -22,6 +23,15 @@ export class TabComponent {
     if (this.template == 'message') {
       this.dynamicComponentLoader
         .getComponentFactory<MessageComponent>(this.template)
+        .subscribe(componentFactory => {
+          this.testOutlet.createComponent(componentFactory);
+        }, error => {
+          console.warn(error);
+        });
+    }
+    if (this.template == 'comment') {
+      this.dynamicComponentLoader
+        .getComponentFactory<CommentComponent>(this.template)
         .subscribe(componentFactory => {
           this.testOutlet.createComponent(componentFactory);
         }, error => {

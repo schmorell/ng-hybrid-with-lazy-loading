@@ -31,10 +31,16 @@ export class TabManagerComponent implements OnInit {
     private router: Router,
     private dynamicComponentLoader: DynamicComponentLoader) { }
 
-  loadComponent() {
+  loadMessage() {
     let random = Math.random() * 10;
 
-    this.router.navigate(['//ng2-route', { component: 'test', random: random }]);
+    this.router.navigate(['//ng2-route', { component: 'message', random: random }]);
+}
+
+  loadComment() {
+    let random = Math.random() * 10;
+
+    this.router.navigate(['//ng2-route', { component: 'comment', random: random }]);
 }
 
   ngOnInit(): void {
@@ -42,10 +48,18 @@ export class TabManagerComponent implements OnInit {
       this.component = url[0].parameters.component;
       if (this.component) {
 
-        if (this.component == 'test') {
+        if (this.component == 'message') {
           this.tabsComponent.openTab(
             `Add`,
             'message',
+            null,
+            true
+          );
+        }
+        if (this.component == 'comment') {
+          this.tabsComponent.openTab(
+            `Add`,
+            'comment',
             null,
             true
           );

@@ -29,6 +29,11 @@ const manifests: DynamicComponentManifest[] = [
     path: 'dynamic-message', // some globally-unique identifier, used internally by the router
     loadChildren: './dynamic-modules/message/message.module#MessageModule',
   },
+  {
+    componentId: 'comment',
+    path: 'dynamic-comment', // some globally-unique identifier, used internally by the router
+    loadChildren: './dynamic-modules/comment/comment.module#CommentModule',
+  },
 ];
 
 // declare var angular: any;
